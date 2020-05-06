@@ -16,6 +16,8 @@ if(GMP_FOUND)
    set(SECP256K1_CONFIG_INC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/config_with_gmp")
 else()
    set(SECP256K1_CONFIG_INC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/config_without_gmp")
+   unset(GMP_INCLUDE_DIR CACHE)
+   unset(GMP_LIBRARIES CACHE)
 endif()
 
 add_library(secp256k1 STATIC
